@@ -8,6 +8,20 @@ $ (function(){
         slidesToShow: 5,
         arrows: false,
         dots: true,
+
+        // 윗 세팅을 밑 세팅으로 바꾸기
+
+        responsive: [
+            {
+
+                // width 769이하 일 때
+              breakpoint: 769,
+              settings: {
+                slidesToShow: 1,
+              }
+            }
+          ]
+        
     });
 
     // .main_customor .left_tab .tab_tit>li.on {
@@ -43,5 +57,13 @@ $ (function(){
 
     $('.to_top').on('click',function(){
         $('html, body').animate({scrollTop:0}, 800)
+    });
+
+
+    // responsive menu 
+    $('.mopen').on('click', function(){
+        $('#gnb').toggleClass('on');
+        $(this).toggleClass('on');
     })
+
 })

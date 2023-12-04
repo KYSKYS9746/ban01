@@ -1,6 +1,8 @@
 /* * {
     outline: 1px solid tomato;
 } */
+
+
 /* margin이 아닌 line-height를 주는 이유는 
 header부분은 예외적으로 line-height를 주기때문. */
 #Header {
@@ -18,6 +20,95 @@ header부분은 예외적으로 line-height를 주기때문. */
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
+}
+
+#Header .mopen {
+    display: none;
+}
+
+@media (max-width:768px) {
+
+    #Header {
+        height: 80px;
+    }
+
+    #Header .mopen {
+        display: block;
+
+        position: fixed;
+        top: 25px;
+        right: 30px;
+
+        line-height: 1;
+
+        width: 30px;
+        height: 30px;
+        background: #f9f9f9;
+
+    }
+
+    #Header .mopen button {
+        font-size: 0;
+        border: none;
+        background: transparent;
+    }
+
+    #Header .mopen button::before,
+    #Header .mopen button::after {
+        content: "";
+        position: absolute;
+        left: 4px;
+        right: 4px;
+        height: 2px;
+        background: #333;
+    }
+
+    #Header .mopen button::before {
+        content: "";
+        position: absolute;
+        top: 6px;
+        left: 4px;
+        right: 4px;
+        height: 2px;
+        background: #333;
+    }
+
+    #Header .mopen button::after {
+        content: "";
+        position: absolute;
+        bottom: 6px;
+        left: 4px;
+        right: 4px;
+        height: 2px;
+        background: #333;
+    }
+
+    #Header .mopen button span::before {
+        content: "";
+        position: absolute;
+        top: 14px;
+        left: 4px;
+        right: 4px;
+        height: 2px;
+        background: #333;
+    }
+
+    #Header .mopen button span::after {
+        content: "";
+        position: absolute;
+        bottom: 14px;
+        left: 4px;
+        right: 4px;
+        height: 2px;
+        background: #333;
+    }
+
+
+    #Header h1 {
+        position: fixed;
+        z-index: 1000;
+    }
+
 }
 
 #gnb {
@@ -55,6 +146,44 @@ display:block로 박스형태로 한다.
     font-size: 18px;
 }
 
+@media (max-width:768px) {
+    #gnb {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        background: #fff;
+        z-index: 999;
+
+        height: 100vh;
+        width: calc(100% - 90px);
+        padding: 120px 15px 0 15px;
+
+        border-right: 1px solid #ddd;
+
+        transition: left 0.5s;
+    }
+
+    #gnb.on {
+        left: 0;
+    }
+
+    #gnb>ul {
+        gap: 0;
+        flex-direction: column;
+        line-height: 40px;
+    }
+
+
+    #gnb>ul>li~li::after {
+        display: none;
+    }
+
+    #gnb>ul>li>a {
+        border-bottom: 1px solid #ddd;
+    }
+}
+
+
 .main_visual_slide .itm {
     position: relative;
     height: 940px;
@@ -63,6 +192,7 @@ display:block로 박스형태로 한다.
 .main_visual_slide .itm01 {
     background: url(../images/mainVisual01.jpg) no-repeat center center/cover;
 }
+
 .main_visual_slide .itm02 {
     background: url(../images/mainVisual02.jpg) no-repeat center center/cover;
 }
@@ -86,13 +216,13 @@ display:block로 박스형태로 한다.
     font-weight: 700;
     color: #fff;
     line-height: 58px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .mainvisual .content span {
     font-size: 18px;
     color: #fff;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .mainvisual .slick-dots {
@@ -102,6 +232,7 @@ display:block로 박스형태로 한다.
     margin: 0 0 0 -585px;
 
 }
+
 /* 밑 코딩 = */
 .mainvisual .slick-dots>li {
     display: inline-block;
@@ -119,6 +250,48 @@ display:block로 박스형태로 한다.
     font-size: 10px;
     border-radius: 50%;
     cursor: pointer;
+}
+
+@media (max-width:768px) {
+    .main_visual_slide .itm {
+        height: calc(100vh - 250px);
+    }
+
+    .mainvisual .content p {
+        font-size: 6vw;
+        line-height: 1.2;
+
+    }
+
+    .mainvisual .slick-dots {
+        position: absolute;
+        bottom: 100px;
+        /* r */
+        left: 0;
+        margin: 0 0 0 0;
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    /* 밑 코딩 = */
+    .mainvisual .slick-dots>li {
+        display: inline-block;
+        margin: 0 4px 0 0;
+
+    }
+
+    /* border-radius=  */
+    .mainvisual .slick-dots>li button {
+        width: 80px;
+        height: 4px;
+        font-size: 0;
+        border-radius: 2px;
+        background: #333;
+    }
+
+    .mainvisual .slick-dots>li.slick-active button {
+        background: #008850;
+    }
 }
 
 .main_content {}
@@ -139,7 +312,7 @@ display:block로 박스형태로 한다.
 
 .main_content .inner>* {
     flex: 1;
-    
+
 }
 
 .main_content .itm figure {
@@ -164,18 +337,51 @@ display:block로 박스형태로 한다.
     text-align: center;
 }
 
+/* 768 resposive */
+
+@media screen and (max-width:768px) {
+    .main_content .title h2 {
+        text-align: left;
+        font-size: 5vw;
+    }
+
+    .main_content .title p {
+        text-align: left;
+    }
+
+    .main_content .inner {
+        flex-direction: column;
+    }
+
+    .main_content .inner img {
+        width: 100%;
+    }
+
+
+}
+
 .main_banner {
-    background: url(../images/mainVisual02.jpg)no-repeat center center/cover;
+    background: url(../images/mainVisual02.jpg)no-repeat fixed center/cover;
 }
 
 .main_banner .title h2 {
     color: #fff;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .main_banner .title p {
     color: #fff;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width:768px) {
+    .main_banner .title h2 {
+        font-size: 5vw;
+    }
+
+    .main_banner {
+        background: url(../images/mainVisual02.jpg)no-repeat scroll center/cover;
+    }
 }
 
 .main_portfolio .main_portfolio_slide .itm {
@@ -219,6 +425,18 @@ display:block로 박스형태로 한다.
     background: #008850;
 }
 
+@media (max-width: 768px) {
+    .main_portfolio .title h2 {
+        font-size: 5vw;
+    }
+
+    .main_portfolio .main_portfolio_slide .itm img {
+        width: 100%;
+    }
+
+}
+
+
 .main_map {
     background: #f9f9f9;
 }
@@ -246,7 +464,7 @@ display:block로 박스형태로 한다.
     padding: 0 0 56.25% 0;
 }
 
-.main_map .left_movie iframe{
+.main_map .left_movie iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -258,7 +476,7 @@ display:block로 박스형태로 한다.
     position: relative;
     padding: 0 0 calc(56.25%) 0;
     overflow: hidden;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .main_map .right_map .__map {
@@ -267,6 +485,18 @@ display:block로 박스형태로 한다.
     left: 0;
     width: 100%;
     height: calc(100% + 10px);
+}
+
+@media (max-width:768px) {
+
+    .main_map .title h2 {
+        font-size: 5vw;
+    }
+
+    .main_map .inner {
+        flex-direction: column;
+    }
+
 }
 
 .main_customor .inner {
@@ -278,7 +508,7 @@ display:block로 박스형태로 한다.
     flex: 1;
 }
 
-.main_customor  h3 {
+.main_customor h3 {
     font-size: 24px;
     font-weight: 600;
     text-transform: uppercase;
@@ -332,7 +562,7 @@ display:block로 박스형태로 한다.
     margin: 0 0 24px 0;
 }
 
-.main_customor .left_tab .tab_tit>li a{
+.main_customor .left_tab .tab_tit>li a {
     display: block;
     padding: 16px 32px;
     background: #f9f9f9;
@@ -359,7 +589,7 @@ display:block로 박스형태로 한다.
     gap: 30px;
     line-height: 40px;
     border-bottom: 1px solid #ddd;
-    
+
 }
 
 .main_customor .left_tab .tab_con ol li a {
@@ -370,10 +600,25 @@ display:block로 박스형태로 한다.
     text-overflow: ellipsis;
 }
 
+@media (max-width:768px) {
+    .main_customor .inner {
+        flex-direction: column;
+    }
+
+    .main_customor .left_tab .tab_tit {
+        flex-direction: column;
+    }
+
+    .main_customor .left_tab .tab_tit>li a {
+        padding: 8px 16px;
+    }
+
+}
+
 #Footer {
     background: #333;
     color: #fff;
-    
+
 }
 
 #Footer .footer_top {
@@ -382,8 +627,8 @@ display:block로 박스형태로 한다.
 
 #Footer .footer_top .privacy {
     line-height: 80px;
-    
-    
+
+
 }
 
 #Footer .footer_top .privacy li {
@@ -425,10 +670,34 @@ display:block로 박스형태로 한다.
     border-radius: 50%;
 }
 
+@media (max-width:768px) {
+
+
+    #Footer .footer_top .privacy {
+        height: auto;
+        padding: 16px 0;
+        gap: 12px;
+        flex-direction: column;
+    }
+
+    #Footer .footer_bottom .inner {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+
+    #Footer .footer_bottom .inner .sns {
+        justify-content: center;
+        order: -1;
+    }
+
+}
+
 .to_top {
     position: fixed;
     bottom: 150px;
     right: -150px;
+    z-index: 999;
 
     cursor: pointer;
     border: none;
@@ -451,4 +720,21 @@ display:block로 박스형태로 한다.
     color: #fff;
     font-size: 24px;
 
+}
+
+@media (max-width:768px) {
+    .to_top {
+        bottom: 0;
+        right: 0;
+    }
+
+    .to_top.on {
+        right: 0;
+    }
+
+    .to_top i {
+        padding: 8px;
+        font-size: 18px;
+
+    }
 }
