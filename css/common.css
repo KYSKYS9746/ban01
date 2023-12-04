@@ -1,0 +1,46 @@
+.inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.default {
+    padding: 100px 0;
+}
+
+.default .title {
+    max-width: 1200px;
+    margin: 0 auto 32px auto;
+    padding: 0 15px;
+}
+
+.default .title h2 {
+    font-size: 32px;
+    font-weight: 600;
+    /* margin: 0 0 8px 0; */
+    /* 마진을 아래쪽으로만 주는 원칙을 깨보자 */
+}
+
+.default .title p {
+    margin: 12px 0 0 0;
+}
+
+.basic_btn {
+    display: inline-block;
+    border: 1px solid #008850;
+    padding: 12px 24px;
+    color: #008850;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* vertical-align: middle;? */
+.basic_btn::after {
+    content: "\e93e";
+    font-family: xeicon;
+    font-size: 12px;
+    margin: 0 0 0 8px;
+    vertical-align: 1px;
+}
+
+

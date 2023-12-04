@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* #sec ul, ol일 경우 sec안에 있는 ul 그 외 모든 ol 없앰 */
+ul, 
+ol,
+li {
+    list-style: none;
+}
+
+/* 점 없애는 거 ul, 숫자 없애는 거 li */
+
+i,
+em, 
+address {
+    font-style: normal;
+}
+/* IR 처리 */
+.blind {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* body안에 전체 위아래 간격 폭  */
+body {
+    line-height: 1;
+}
+
+img {
+    vertical-align: middle;
+    max-width: 100%; 
+}
+
